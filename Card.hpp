@@ -26,6 +26,7 @@ public:
     // Member Functions
 
     // isFaceCard() - Check Face Card
+    // *Mainly used for debugging purposes*
     // Precondition:
     // Card rank must be valid; Card must be a valid card
     // Postcondition:
@@ -33,6 +34,7 @@ public:
     bool isFaceCard();
 
     // isValid() - Check if card is valid
+    // *Mainly used for debugging purposes*
     // Precondition:
     // Card components must be numerical values
     // Postcondition:
