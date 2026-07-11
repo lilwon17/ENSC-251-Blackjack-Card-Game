@@ -5,7 +5,7 @@
 #include "card.hpp"
 using namespace std;
 
-const int MAX_HAND_SIZE = 12;  // Enough for worst case hand without busting, worst case: A+A+A+A+2+2+2+2+3+3+3, one more space for buffer
+const int MAX_HAND_SIZE = 11;  // Enough for worst case hand without busting, worst case: A+A+A+A+2+2+2+2+3+3+3
 
 class Hand {
 private:
