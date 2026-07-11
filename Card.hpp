@@ -1,68 +1,92 @@
-#ifndef CARD_CLASS
-#define CARD_CLASS
+#ifndef CARD_HPP
+#define CARD_HPP
 
-class Card{
+#include <iostream>
+using namespace std;
 
+class Card {
 private:
-
     // Properties of playing cards
-    int suit;
-    int rank;
+    int rank;   // 1-13 (1=Ace, 11=Jack, 12=Queen, 13=King)
+    int suit;   // 0-3 (0=Clubs, 1=Diamonds, 2=Hearts, 3=Spades)
 
 public:
-
     // Constructors
-
     // Default
-    // Postcondition:
-    // Create a variable of class Card with rank(1) and suit(0)
     Card();
-
-    // Specific
     // Postcondition:
-    // Create a variable of class Card with rank(r) and suit(s)
+    // Creates a Card with rank(1) and suit(0) -> Ace of Clubs
+
+    // Constructor with parameters
     Card(int r, int s);
-
-    // Member Functions
-
-    // isFaceCard() - Check Face Card
-    // *Mainly used for debugging purposes*
     // Precondition:
-    // Card rank must be valid; Card must be a valid card
+    // r must be between 1-13, s must be between 0-3
     // Postcondition:
-    // Return true if card has rank value greater or equal to 11 and false if otherwise
-    bool isFaceCard();
+    // Creates a Card with rank(r) and suit(s)
 
-    // isValid() - Check if card is valid
-    // *Mainly used for debugging purposes*
+    // Destructor
+    ~Card();
+
+    // Accessors
+    // Return the rank of the card
+    int getRank() const;
+    // Postcondition:
+    // Returns the rank value (1-13)
+
+    // Return the suit of the card
+    int getSuit() const;
+    // Postcondition:
+    // Returns the suit value (0-3)
+
+    // Return Blackjack value of the card
+    int getValue() const;
+    // Precondition:
+    // Card must be valid
+    // Postcondition:
+    // Returns 10 for face cards (J,Q,K), returns rank value for number cards,
+    // returns 11 for Ace (Hand class will handle reducing Ace to 1 if needed)
+
+    // Check if card is a face card
+    bool isFaceCard() const;
+    // Precondition:
+    // Card rank must be valid
+    // Postcondition:
+    // Returns true if rank is Jack, Queen, or King, false otherwise
+
+    // Check if card is an Ace
+    bool isAce() const;
+    // Precondition:
+    // Card rank must be valid
+    // Postcondition:
+    // Returns true if rank equals 1, false otherwise
+
+    // Check if card is valid
+    bool isValid() const;
     // Precondition:
     // Card components must be numerical values
     // Postcondition:
-    // If the value for rank or suit is invalid return false and error message
-    // else, return true and a message saying the card is valid
-    bool isValid();
+    // Returns false and prints an error message if rank or suit is invalid,
+    // else returns true
 
-    /* Mapping
-
-    * 0 = Clubs
-    * 1 = Diamonds
-    * 2 = Hearts
-    * 3 = Spades
-
-    * 1 = Ace
-    ...
-    * 11 = Jack
-    * 12 = Queen
-    * 13 = King
-    
-    */
+    // Overloaded comparison operators
+    // Compares cards based on rank (useful for sorting/Ace logic)
+    bool operator==(const Card& other) const;
+    bool operator<(const Card& other) const;
+    bool operator>(const Card& other) const;
 
     // Overload Insertion Operator
-    friend ostream& operator<<(ostream& os, const Card& c);
+    friend ostream& operator<<(ostream& out, const Card& c);
+    // Precondition:
+    // Card must be valid
+    // Postcondition:
+    // Displays the card (ex: "King of Spades") to the output stream
 
     // Overload Extraction Operator
-    friend ostream& operator<<(ostream& is, Card& c);
-
+    friend istream& operator>>(istream& is, Card& c);
+    // Precondition:
+    // Input stream must contain two integers: rank and then suit
+    // Postcondition:
+    // Reads rank and suit values into the Card object from the input stream
 };
 
 #endif
