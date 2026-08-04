@@ -70,7 +70,7 @@ public:
     // Then the dealer draws until its hand value is 17 or higher or until the dealer busts
 
     // Displaying the dealer's hand with a hidden card
-    void displayHiddenHand() const;
+    void displayHiddenHand(const Hand& hand);
     // Precondition:
     // Dealer must have two cards in their hand
     // Postcondition:
