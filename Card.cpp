@@ -93,36 +93,35 @@ bool Card::operator>(const Card& other) const {
 
 // Prints the card like "King of Spades"
 ostream& operator<<(ostream& out, const Card& c) {
-    // Turn the rank number into a word
-    string rankName;
+    // Print the rank as a word if it has one
     if (c.rank == 1) {
-        rankName = "Ace";
+        out << "Ace";
     } else if (c.rank == 11) {
-        rankName = "Jack";
+        out << "Jack";
     } else if (c.rank == 12) {
-        rankName = "Queen";
+        out << "Queen";
     } else if (c.rank == 13) {
-        rankName = "King";
+        out << "King";
     } else {
-        // For 2 through 10, just print the number
-        rankName = to_string(c.rank);
+        // For 2 through 10, just print the number itself
+        out << c.rank;
     }
 
-    // Turn the suit number into a word
-    string suitName;
+    out << " of ";
+
+    // Print the suit as a word
     if (c.suit == 0) {
-        suitName = "Clubs";
+        out << "Clubs";
     } else if (c.suit == 1) {
-        suitName = "Diamonds";
+        out << "Diamonds";
     } else if (c.suit == 2) {
-        suitName = "Hearts";
+        out << "Hearts";
     } else if (c.suit == 3) {
-        suitName = "Spades";
+        out << "Spades";
     } else {
-        suitName = "Unknown";
+        out << "Unknown";
     }
 
-    out << rankName << " of " << suitName;
     return out;
 }
 
