@@ -1,0 +1,23 @@
+Debugging Session (Wesley | Aug. 6, 2026 | 8:30 pm)
+
+1. Had an issue where sometimes the dealer or the player would win although they busted 
+  - The problem was that that in Blackjackgame.cpp the function determineWinner() and 'if' and 'else if' conditions checking isBust() OR if one hand is greater than the other
+  - This was a problem because if isBust() is false but the comparison is true, the player/dealer with the higher card would win despite having busted
+  - Fixed by making each condition it's own if/else if block
+
+2. Fixed up some of the formatting to make it look cleaner
+
+3. Checked if the error would pop up if user entered an invalid response to "Would you like to hit (h) or stand (s)? " 
+ - If user puts in any character that isn't 'h' or 's' then it would have an error and re-ask the question
+
+4. No problems with the hitting or standing as player
+
+5. Ace is able to be 1 or 11
+
+6. Checked if the error would pop up if user entered an invalid response to "Do you want to play again? (y/n): " 
+  - If user puts in any character that isn't 'h' or 's' then it would have an error and re-ask the question
+
+Things still need to be checked:
+  - Better the formatting
+  - Check if the deck is actually a full deck without repeats
+  - Anything else that I may have missed
