@@ -54,6 +54,7 @@ char Player::chooseAction(){
 
         cout << "Would you like to hit (h) or stand (s)? ";
         cin >> choice;
+        cout << endl;
 
         // If the input stream failed (ex: end of input), stop asking
         if(cin.fail()){

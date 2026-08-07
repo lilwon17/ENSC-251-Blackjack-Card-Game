@@ -61,7 +61,7 @@ void BlackjackGame::startRound() {
     resetRound(); // Reset the round
     dealStartingCards(); // Deal the starting cards to the player and dealer
 
-    cout << "\nYour hand: " << player.getHand() << endl; // Display the player's hand
+    cout << "\nYour hand: " << endl << player.getHand() << endl; // Display the player's hand
     dealer.displayHiddenHand(); // Display the dealer's hand with a hidden card
 
 }
@@ -87,7 +87,7 @@ void BlackjackGame::playerTurn() {
             Card drawn = deck.dealCard(); // Deal a card to the player
             cout << "You drew: " << drawn << endl; // Display the card drawn
             player.receiveCard(drawn); // Add the card to the player's hand 
-            cout << "Your hand: " << player.getHand() << endl; // Display the player's new hand after drawn card
+            cout << "Your hand: " << endl << player.getHand() << endl; // Display the player's new hand after drawn card
         }
 
         if (player.isBust()) {
@@ -110,14 +110,23 @@ void BlackjackGame::determineWinner() const {
     int dealerValue = dealer.getHand().getValue(); // Get the dedaler's hand value
 
     cout << "\nFinal Hands: " << endl;
-    cout << "Your hand: " << player.getHand() << endl; // Display the player's final hand
-    dealer.displayFullHand(); // Display the dealer's final hand
+    cout << "-------------------------------------" << endl;
+    cout << "Your hand: " << endl <<player.getHand() << endl; // Display the player's final hand
+    cout << "Dealer's hand:";
+    dealer.displayFullHand(); cout << endl; // Display the dealer's final hand
+    cout << "-------------------------------------" << endl;
 
-    if (player.isBust() || dealerValue > playerValue) {
-        cout << "Dealer wins!" << endl; // Dealer wins if player busts or has lower value
+    if (player.isBust()) {
+        cout << "Dealer wins!" << endl; // Dealer wins if player busts 
     }
-    else if (dealer.isBust() || playerValue > dealerValue) {
-        cout << "You win!" << endl; // Player wins if dealer busts or has lower value
+    else if (dealer.isBust()) {
+        cout << "You win!" << endl; // Player wins if dealer busts 
+    }
+    else if (playerValue > dealerValue) {
+        cout << "You win!" << endl; // Player wins if they have a higher value than the dealer
+    }
+    else if (dealerValue > playerValue) {
+        cout << "Dealer wins!" << endl; // Dealer wins if they have a higher valyue than the player
     }
     else {
         cout << "It's a push (tie)" << endl; // It's a tie if neither busts and values are equal

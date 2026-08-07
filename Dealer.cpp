@@ -84,7 +84,7 @@ void Dealer::playTurn(Deck& deck){
 
 // displayHiddenHand()
 // Display the dealer's hand with a hidden card
-void displayHiddenHand() const{
+void Dealer::displayHiddenHand() const{
 
     if(hand.getNumCards() >= 2){
 
