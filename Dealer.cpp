@@ -10,9 +10,6 @@ Dealer::Dealer(){
 
 // Destructor
 Dealer::~Dealer(){
-
-    delete &hand; // Delete the dealer's hand
-
 }
 
 
