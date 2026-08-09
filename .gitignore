@@ -1,0 +1,11 @@
+# Visual Studio / CMake build output for the gui/ project - never commit this.
+# The raylib source that CMake downloads also lands in here (~350 MB).
+gui/out/
+gui/build/
+gui/.vs/
+*.exe
+*.obj
+*.pdb
+*.ilk
+CMakeSettings.json
+CMakeUserPresets.json
