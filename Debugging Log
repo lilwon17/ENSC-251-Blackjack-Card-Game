@@ -17,6 +17,8 @@ Debugging Session (Wesley | Aug. 6, 2026 | 8:30 pm)
 6. Checked if the error would pop up if user entered an invalid response to "Do you want to play again? (y/n): " 
   - If user puts in any character that isn't 'h' or 's' then it would have an error and re-ask the question
 
+7. 
+
 Things still need to be checked:
   - Better the formatting
   - Check if the deck is actually a full deck without repeats
